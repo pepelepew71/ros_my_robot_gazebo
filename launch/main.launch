@@ -16,14 +16,22 @@
 
     <!-- # spawm robot -->
 
-    <arg name="ns" value="/" />
-
-    <group ns="$(arg ns)">
-        <include file="$(find ros_my_robot_gazebo)/launch/leo_rover/spawn.launch">
-            <arg name="ns" value="$(arg ns)" />
+    <group ns="car1">
+        <include file="$(find ros_my_robot_gazebo)/launch/spawn_leo_rover.launch">
+            <arg name="ns" value="car1" />
             <arg name="tf_odom_enabled" value="true" />
             <arg name="x" value="0.0" />
             <arg name="y" value="0.0" />
+            <arg name="Y" value="0.0" />
+        </include>
+    </group>
+
+    <group ns="car2\">
+        <include file="$(find ros_my_robot_gazebo)/launch/spawn_leo_rover.launch">
+            <arg name="ns" value="car2" />
+            <arg name="tf_odom_enabled" value="true" />
+            <arg name="x" value="0.0" />
+            <arg name="y" value="-5.0" />
             <arg name="Y" value="0.0" />
         </include>
     </group>
