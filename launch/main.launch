@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+    <!-- # gazebo -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <!-- <arg name="world_name" value="$(find ros_my_robot_gazebo)/worlds/empty.world" /> -->
+        <!-- <arg name="world_name" value="$(find ros_my_robot_gazebo)/worlds/cloister_asphalt.world" /> -->
+        <arg name="world_name" value="$(find ros_my_robot_gazebo)/worlds/playpen_asphalt.world" />
+        <arg name="paused" value="false" />
+        <arg name="use_sim_time" value="true" />
+        <arg name="gui" value="true" />
+        <arg name="headless" value="false" />
+        <arg name="debug" value="false" />
+    </include>
+
+    <!-- # spawm robot -->
+
+    <arg name="ns" value="/" />
+
+    <group ns="$(arg ns)">
+        <include file="$(find ros_my_robot_gazebo)/launch/leo_rover/spawn.launch">
+            <arg name="ns" value="$(arg ns)" />
+            <arg name="tf_odom_enabled" value="true" />
+            <arg name="x" value="0.0" />
+            <arg name="y" value="0.0" />
+            <arg name="Y" value="0.0" />
+        </include>
+    </group>
+
+</launch>

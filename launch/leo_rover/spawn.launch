@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+    <!-- # args -->
+    <arg name="tf_odom_enabled" default="false" />
+    <arg name="ns" default="" />
+    <arg name="model" default="" />
+    <arg name="x" default="0.0" />
+    <arg name="y" default="0.0" />
+    <arg name="Y" default="0.0" />
+
+    <!-- # gazebo spawm -->
+    <param name="robot_description"
+           command="$(find xacro)/xacro
+                    --inorder
+                    '$(find ros_my_robot_gazebo)/urdf/leo_rover/main.urdf.xacro'
+                    tf_odom_enabled:=$(arg tf_odom_enabled)
+                    ns:=$(arg ns)
+                    " />
+
+    <!-- # the spawn pose yaw 0 means the robot heading to +x axis in gazebo -->
+    <node name="spawner_model"
+          pkg="gazebo_ros"
+          type="spawn_model"
+          args="-x $(arg x)
+                -y $(arg y)
+                -z 0.2
+                -R 0
+                -P 0
+                -Y $(arg Y)
+                -urdf
+                -model $(arg ns)
+                -param robot_description" />
+
+</launch>
