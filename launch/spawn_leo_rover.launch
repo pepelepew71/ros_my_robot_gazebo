@@ -3,7 +3,7 @@
 <launch>
 
     <!-- # args -->
-    <arg name="tf_odom_enabled" default="false" />
+    <arg name="tf_odom_enabled" default="true" />
     <arg name="ns" default="" />
     <arg name="x" default="0.0" />
     <arg name="y" default="0.0" />

@@ -19,9 +19,6 @@
     <!-- # spawm robot -->
     <include file="$(find ros_my_robot_gazebo)/launch/spawn_mrobot.launch">
         <arg name="tf_odom_enabled" value="true" />
-        <arg name="x" value="0.0" />
-        <arg name="y" value="0.0" />
-        <arg name="Y" value="0.0" />
     </include>
 
 </launch>
