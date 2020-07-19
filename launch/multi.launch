@@ -6,7 +6,9 @@
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
         <!-- <arg name="world_name" value="$(find ros_my_robot_gazebo)/worlds/empty.world" /> -->
         <!-- <arg name="world_name" value="$(find ros_my_robot_gazebo)/worlds/cloister_asphalt.world" /> -->
-        <arg name="world_name" value="$(find ros_my_robot_gazebo)/worlds/playpen_asphalt.world" />
+        <!-- <arg name="world_name" value="$(find ros_my_robot_gazebo)/worlds/playpen_asphalt.world" /> -->
+        <!-- <arg name="world_name" value="$(find ros_my_robot_gazebo)/worlds/cloister.world" /> -->
+        <arg name="world_name" value="$(find ros_my_robot_gazebo)/worlds/playpen.world" />
         <arg name="paused" value="false" />
         <arg name="use_sim_time" value="true" />
         <arg name="gui" value="true" />
@@ -14,10 +16,9 @@
         <arg name="debug" value="false" />
     </include>
 
-    <!-- # spawm robot -->
-
+    <!-- # spawm robots -->
     <group ns="car1">
-        <include file="$(find ros_my_robot_gazebo)/launch/spawn_leo_rover.launch">
+        <include file="$(find ros_my_robot_gazebo)/launch/spawn_mrobot.launch">
             <arg name="ns" value="car1" />
             <arg name="tf_odom_enabled" value="true" />
             <arg name="x" value="0.0" />
@@ -26,8 +27,8 @@
         </include>
     </group>
 
-    <group ns="car2\">
-        <include file="$(find ros_my_robot_gazebo)/launch/spawn_leo_rover.launch">
+    <group ns="car2">
+        <include file="$(find ros_my_robot_gazebo)/launch/spawn_mrobot.launch">
             <arg name="ns" value="car2" />
             <arg name="tf_odom_enabled" value="true" />
             <arg name="x" value="0.0" />

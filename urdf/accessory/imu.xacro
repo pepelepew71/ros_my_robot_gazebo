@@ -4,17 +4,17 @@
 
     <xacro:macro name="imu" params="ns">
         <link name="$(arg ns)/imu_link">
+            <inertial>
+                <mass value="1e-5" />
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+            </inertial>
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
                     <box size="0.01 0.01 0.01" />
                 </geometry>
             </visual>
-            <inertial>
-                <mass value="1e-5" />
-                <origin xyz="0 0 0" rpy="0 0 0" />
-                <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
-            </inertial>
         </link>
 
         <gazebo reference="$(arg ns)/imu_link">

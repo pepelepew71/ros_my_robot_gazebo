@@ -3,9 +3,15 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <!-- Macro for caster joint -->
-    <xacro:macro name="caster" params="fb translateX parent">
+    <xacro:macro name="caster" params="fb translateX parent ns">
         <!-- fb: front, back -->
-        <link name="${fb}_caster_link">
+        <joint name="base_to_${fb}_caster_joint" type="fixed">
+            <origin xyz="${translateX*caster_joint_origin_x} 0 ${-caster_radius}" rpy="0 0 0"/>
+            <parent link="${parent}"/>
+            <child link="$(arg ns)/${fb}_caster_link"/>
+        </joint>
+
+        <link name="$(arg ns)/${fb}_caster_link">
             <visual>
                 <origin xyz="0 0 0 " rpy="0 0 0" />
                 <geometry>
@@ -26,10 +32,5 @@
             <material>Gazebo/Gray</material>
         </gazebo>
 
-        <joint name="base_to_${fb}_caster_joint" type="fixed">
-            <parent link="${parent}"/>
-            <child link="${fb}_caster_link"/>
-            <origin xyz="${translateX*caster_joint_origin_x} 0 ${-caster_radius}" rpy="0 0 0"/>
-        </joint>
     </xacro:macro>
 </robot>

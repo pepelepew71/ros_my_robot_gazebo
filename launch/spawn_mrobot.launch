@@ -14,7 +14,7 @@
     <param name="robot_description"
            command="$(find xacro)/xacro
                     --inorder
-                    '$(find ros_my_robot_gazebo)/urdf/leo_rover/main.xacro'
+                    '$(find ros_my_robot_gazebo)/urdf/mrobot/main.xacro'
                     tf_odom_enabled:=$(arg tf_odom_enabled)
                     ns:=$(arg ns)
                     " />

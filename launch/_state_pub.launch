@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+    <!-- # args -->
+    <arg name="ns" default="" />
+
+    <!-- # Load joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find ros_my_robot_gazebo)/config/joint_state_controller.yaml" command="load"/>
+
+    <!-- # load the controllers -->
+    <node pkg="controller_manager" type="spawner" name="joint_state_pub" respawn="false" output="screen" args="joint_state_controller" />
+
+    <!-- # convert joint states to TF transforms for rviz, etc -->
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_pub" respawn="false" output="screen">
+        <remap from="robot_description" to="/$(arg ns)/robot_description" />
+        <remap from="/joint_states" to="/$(arg ns)/joint_states" />
+    </node>
+
+</launch>

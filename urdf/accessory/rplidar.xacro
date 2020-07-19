@@ -7,25 +7,14 @@
             <inertial>
                 <mass value="0.1" />
                 <origin xyz="0 0 0" />
-                <inertia ixx="0.01" ixy="0.0" ixz="0.0"
-                         iyy="0.01" iyz="0.0"
-                         izz="0.01" />
+                <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01" />
             </inertial>
-
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
                     <cylinder length="0.05" radius="0.02"/>
                 </geometry>
-                <material name="gray"/>
             </visual>
-
-            <collision>
-                <origin xyz="0 0 0" rpy="0 0 0" />
-                <geometry>
-                    <cylinder length="0.05" radius="0.02"/>
-                </geometry>
-            </collision>
         </link>
 
         <gazebo reference="$(arg ns)/rplidar_link">
@@ -58,7 +47,7 @@
                     </noise>
                 </ray>
                 <plugin name="gazebo_rplidar" filename="libgazebo_ros_laser.so">
-                    <topicName>$(arg ns)/scan</topicName>
+                    <topicName>scan</topicName>
                     <frameName>$(arg ns)/rplidar_link</frameName>
                 </plugin>
             </sensor>

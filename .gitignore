@@ -1,3 +1,5 @@
 .vscode
 *.pyc
 __pycache__
+mesh/*
+!mesh/leo_rover.zip
