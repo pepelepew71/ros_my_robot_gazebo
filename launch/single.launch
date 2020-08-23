@@ -7,8 +7,8 @@
         <!-- <arg name="world_name" value="$(find ros_my_robot_gazebo)/worlds/empty.world" /> -->
         <!-- <arg name="world_name" value="$(find ros_my_robot_gazebo)/worlds/cloister_asphalt.world" /> -->
         <!-- <arg name="world_name" value="$(find ros_my_robot_gazebo)/worlds/playpen_asphalt.world" /> -->
-        <!-- <arg name="world_name" value="$(find ros_my_robot_gazebo)/worlds/cloister.world" /> -->
-        <arg name="world_name" value="$(find ros_my_robot_gazebo)/worlds/playpen.world" />
+        <arg name="world_name" value="$(find ros_my_robot_gazebo)/worlds/cloister.world" />
+        <!-- <arg name="world_name" value="$(find ros_my_robot_gazebo)/worlds/playpen.world" /> -->
         <arg name="paused" value="false" />
         <arg name="use_sim_time" value="true" />
         <arg name="gui" value="true" />
